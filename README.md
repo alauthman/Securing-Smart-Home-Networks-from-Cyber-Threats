@@ -1,4 +1,4 @@
-# SHNet-ML-Edge: Smart-Home Network Anomaly Detection (ML + Raspberry Pi + Docker)
+# Smart-Home Network Anomaly Detection (ML + Raspberry Pi + Docker)
 
 This repository provides an **end-to-end, reproducible** pipeline to:
 1) **ingest & preprocess** large smart-home cyber-physical datasets (CSV/JSON + optional PCAP conversion),
