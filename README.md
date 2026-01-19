@@ -155,6 +155,5 @@ If you use a third-party dataset (e.g., from a university repository), **follow 
 
 ---
 
-## License
-
-MIT License (see `LICENSE`).
+## Acknowledgements
+The authors gratefully acknowledge the support provided by the Deanship of Scientific Research at the University of Petra, Jordan, under grant number 2024/3.
