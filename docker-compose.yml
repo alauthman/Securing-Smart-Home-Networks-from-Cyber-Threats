@@ -1,0 +1,11 @@
+services:
+  shnet-ml-edge:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - SHNET_MODEL_PATH=/app/models/model.joblib
+    volumes:
+      - ./models:/app/models:ro

@@ -1,0 +1,33 @@
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  model_dir: models
+  reports_dir: reports
+
+dataset:
+  raw_glob:
+    - "synth/*.csv"
+  label_col: "label"   # optional; used only for evaluation heuristics
+  time_col: null
+  drop_cols: []
+  sample_frac: 1.0
+
+features:
+  numeric_cols:
+    - "pkt_size_mean"
+    - "conn_rate"
+    - "dns_qps"
+  categorical_cols:
+    - "proto"
+
+model:
+  kind: "iforest"
+  params:
+    n_estimators: 200
+    random_state: 42
+
+train:
+  task: "anomaly"
+  test_size: 0.2
+  random_state: 42
+  contamination: 0.05

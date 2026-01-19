@@ -1,0 +1,22 @@
+# Training container (optional). Use this for reproducible training runs on a server.
+FROM python:3.11-slim
+
+WORKDIR /app
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY pyproject.toml README.md LICENSE requirements.txt /app/
+COPY src/ /app/src/
+COPY scripts/ /app/scripts/
+COPY configs/ /app/configs/
+
+RUN pip install -U pip \
+    && pip install -r /app/requirements.txt \
+    && pip install .
+
+# Mount raw/processed/models/reports via volumes when running
+CMD ["python", "scripts/train.py", "--config", "configs/example_synth.yaml"]
